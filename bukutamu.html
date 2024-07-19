@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Buku Tamu | BPS Lampung</title>
+    <link rel="icon" type="image/png" href="./img/logo.png">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:slnt,wght@-10..0,100..900&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link rel="stylesheet" href="lib/animate/animate.min.css" />
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        html, body {
+            height: 100%;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+        .content {
+            flex: 1 0 auto;
+        }
+        .footer {
+            flex-shrink: 0;
+        }
+        #nomorAntrianDiv, #tujuanLainnyaDiv {
+            display: none;
+            /* Tersembunyi secara default */
+        }
+        canvas {
+            width: 100%;
+            height: auto;
+            border-radius: .25rem;
+        }
+        .canvas-controls {
+            text-align: right;
+            margin-bottom: .5rem;
+        }
+        .canvas-controls span {
+            cursor: pointer;
+            padding: .5rem 1rem;
+            border: 1px solid #ced4da;
+            border-radius: .25rem;
+            margin-right: .5rem;
+            background-color: #f8f9fa;
+            user-select: none;
+        }
+        .canvas-controls span:hover {
+            background-color: #e9ecef;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar Start -->
+    <div class="container-fluid nav-bar px-0 px-lg-4 py-lg-0">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light justify-content-between">
+                <a href="index.html" class="navbar-brand p-0">
+                    <img src="img/logobpsprov.png" alt="Logo">
+                </a>
+                <div class="nav-btn px-3">
+                    <a href="login.html" class="btn btn-primary rounded-pill py-2 px-4 ms-3 flex-shrink-0">Login</a>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Navbar End -->
+
+    <!-- Content Start -->
+    <div class="content">
+        <div class="container-fluid contact bg-light py-3">
+            <div class="container py-3">
+                <div class="text-center mx-auto pb-3 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+                    <img src="img/bps.png" alt="bps" class="img-fluid w-25">
+                    <h1 class="display-4 mb-2">Buku Tamu</h1>
+                    <h2 class="mb-2">Badan Pusat Statistik Provinsi Lampung</h2>
+                </div>
+                <div class="row g-5 justify-content-center">
+                    <div class="col-xl-6 wow fadeInRight" data-wow-delay="0.4s">
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-lg-12 col-xl-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control border-0" id="name" placeholder="Name" autocomplete="off">
+                                        <label for="name">Nama Lengkap</label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-xl-6">
+                                    <div class="form-floating">
+                                        <input type="email" class="form-control border-0" id="email" placeholder="Email" autocomplete="off">
+                                        <label for="email">Alamat Email</label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-xl-6">
+                                    <div class="form-floating">
+                                        <input type="phone" class="form-control border-0" id="phone" placeholder="Phone" autocomplete="off">
+                                        <label for="phone">Nomor Telpon</label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-xl-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control border-0" id="asal" placeholder="Asal">
+                                        <label for="asal">Asal Instansi / Universitas</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control border-0" id="alamat" placeholder="Alamat">
+                                        <label for="alamat">Alamat</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <input type="number" class="form-control border-0" id="jumlahPengunjung" placeholder="Jumlah Pengunjung" min="1" step="1" required>
+                                        <label for="jumlahPengunjung">Jumlah Pengunjung</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <select class="form-select border-0" id="tujuan" aria-label="Tujuan">
+                                            <option value="" disabled selected>Pilih Tujuan</option>
+                                            <option value="Pelayanan Statistik Terpadu">Pelayanan Statistik Terpadu</option>
+                                            <option value="Lainnya">Lainnya</option>
+                                        </select>
+                                        <label for="tujuan">Tujuan</label>
+                                    </div>
+                                </div>
+                                <div class="col-12" id="tujuanLainnyaDiv">
+                                    <div class="form-floating">
+                                        <select class="form-select border-0" id="tujuanLainnya" aria-label="Tujuan Lainnya">
+                                            <option value="" disabled selected>Pilih Tujuan Lainnya</option>
+                                            <option value="Kepala BPS Provinsi">Kepala BPS Provinsi</option>
+                                            <option value="Bagian Umum">Bagian Umum</option>
+                                            <option value="Tim Statistik Sosial">Tim Statistik Sosial</option>
+                                            <option value="Tim Statistik Produksi">Tim Statistik Produksi</option>
+                                            <option value="Tim Statistik Distribusi">Tim Statistik Distribusi</option>
+                                            <option value="Tim Neraca Wilayah dan Analisis Statistik">Tim Neraca Wilayah dan Analisis Statistik</option>
+                                            <option value="Tim Integrasi Pengolahan dan Diseminasi Statistik">Tim Integrasi Pengolahan dan Diseminasi Statistik</option>
+                                        </select>
+                                        <label for="tujuanLainnya">Tujuan Lainnya</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <textarea class="form-control border-0" placeholder="Leave a message here" id="Keperluan" style="height: 120px"></textarea>
+                                        <label for="Keperluan">Keperluan</label>
+                                    </div>
+                                </div>
+                                <div class="col-12" id="nomorAntrianDiv">
+                                    <div class="form-floating">
+                                        <input type="number" class="form-control border-0" id="nomorAntrian" placeholder="Nomor Antrian" min="1" step="1" required>
+                                        <label for="nomorAntrian">Nomor Antrian</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="canvas-controls py-2">
+                                        <span id="markerButton">Marker</span>
+                                        <span id="eraserButton">Eraser</span>
+                                    </div>
+                                    <div class="form-floating">
+                                        <div style="border: 1px solid #ced4da; border-radius: .25rem;">
+                                            <canvas id="signatureCanvas" width="400" height="200"></canvas>
+                                        </div>
+                                        <label for="signatureCanvas">Tanda Tangan</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-primary w-100 py-3" type="submit">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Content End -->
+
+    <!-- Footer Start -->
+    <div class="container-fluid copyright py-4 footer">
+        <div class="container">
+            <div class="row g-4 align-items-center">
+                <div class="col-md-6 text-center text-md-end mb-md-0">
+                    <span class="text-body"><a href="https://lampung.bps.go.id/" class="border-bottom text-white"><i class="fas fa-copyright text-light me-2"></i>BPS Provinsi Lampung</a>, All right reserved.</span>
+                </div>
+                <div class="col-md-6 text-center text-md-start text-body">
+                    Designed by IPDS BPS Provinsi Lampung
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+    <script>
+        document.getElementById('tujuan').addEventListener('change', function () {
+            var tujuanValue = this.value;
+            var nomorAntrianDiv = document.getElementById('nomorAntrianDiv');
+            var tujuanLainnyaDiv = document.getElementById('tujuanLainnyaDiv');
+            if (tujuanValue === "Pelayanan Statistik Terpadu") {
+                nomorAntrianDiv.style.display = 'block';
+                tujuanLainnyaDiv.style.display = 'none';
+            } else if (tujuanValue === "Lainnya") {
+                nomorAntrianDiv.style.display = 'none';
+                tujuanLainnyaDiv.style.display = 'block';
+            } else {
+                nomorAntrianDiv.style.display = 'none';
+                tujuanLainnyaDiv.style.display = 'none';
+            }
+        });
+
+        // Initialize canvas and context
+        const canvas = document.getElementById('signatureCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // Adjust canvas for different device pixel ratios
+        function resizeCanvas() {
+            const ratio = Math.max(window.devicePixelRatio || 1, 1);
+            canvas.width = canvas.offsetWidth * ratio;
+            canvas.height = canvas.offsetHeight * ratio;
+            ctx.scale(ratio, ratio);
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        // Variables to keep track of drawing state
+        let drawing = false;
+        let erasing = false;
+
+        // Get mouse/touch coordinates relative to canvas
+        function getPointerPosition(e) {
+            const rect = canvas.getBoundingClientRect();
+            return {
+                x: (e.clientX || e.touches[0].clientX) - rect.left,
+                y: (e.clientY || e.touches[0].clientY) - rect.top
+            };
+        }
+
+        // Event listeners for drawing
+        canvas.addEventListener('mousedown', startDrawing);
+        canvas.addEventListener('mousemove', draw);
+        canvas.addEventListener('mouseup', stopDrawing);
+        canvas.addEventListener('mouseout', stopDrawing);
+
+        // Event listeners for touch drawing
+        canvas.addEventListener('touchstart', startDrawing);
+        canvas.addEventListener('touchmove', draw);
+        canvas.addEventListener('touchend', stopDrawing);
+
+        // Event listeners for marker and eraser
+        document.getElementById('markerButton').addEventListener('click', useMarker);
+        document.getElementById('eraserButton').addEventListener('click', useEraser);
+
+        // Start drawing
+        function startDrawing(e) {
+            drawing = true;
+            draw(e); // Start drawing immediately
+        }
+
+        // Draw on canvas
+        function draw(e) {
+            if (!drawing) return;
+            e.preventDefault();
+
+            const { x, y } = getPointerPosition(e);
+
+            if (erasing) {
+                eraseArea(x, y); // Call eraseArea when erasing
+            } else {
+                ctx.lineWidth = 2;
+                ctx.lineCap = 'round';
+                ctx.strokeStyle = '#000000';
+
+                ctx.lineTo(x, y);
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.moveTo(x, y);
+            }
+        }
+
+        // Erase area on canvas
+        function eraseArea(x, y) {
+            const size = 9999; // Size of the eraser
+            ctx.clearRect(x - size / 2, y - size / 2, size, size); // Clear a rectangle area
+        }
+
+        // Stop drawing
+        function stopDrawing() {
+            drawing = false;
+            ctx.beginPath(); // Start a new path
+        }
+
+        // Use marker
+        function useMarker() {
+            erasing = false;
+        }
+
+        // Use eraser
+        function useEraser() {
+            erasing = true;
+        }
+    </script>
+</body>
+</html>

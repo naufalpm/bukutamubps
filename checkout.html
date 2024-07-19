@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Survei Kepuasan | BPS Lampung</title>
+    <link rel="icon" type="image/png" href="./img/logo.png">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:slnt,wght@-10..0,100..900&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link rel="stylesheet" href="lib/animate/animate.min.css"/>
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        #nomorAntrianDiv {
+            display: none; /* Tersembunyi secara default */
+        }
+        .rating-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+        }
+        .rating-container input[type="radio"] {
+            display: none;
+        }
+        .rating-container label {
+            cursor: pointer;
+            padding: 0 10px; /* Jarak antara bintang */
+            font-size: 40px; /* Ukuran bintang */
+            color: #ccc;
+            position: relative; /* Untuk posisi relatif pada label */
+        }
+        .rating-container label:hover,
+        .rating-container input[type="radio"]:checked ~ label {
+            color: gold;
+        }
+        /* Keterangan angka di bawah bintang */
+        .rating-container label::after {
+            content: attr(data-rating);
+            position: absolute;
+            top: 50px; /* Sesuaikan jaraknya di sini */
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 16px; /* Ukuran font angka */
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Navbar Start -->
+    <div class="container-fluid nav-bar px-0 px-lg-4 py-lg-0">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light justify-content-between">
+                <a href="index.html" class="navbar-brand p-0">
+                    <img src="img/logobpsprov.png" alt="Logo">
+                </a>
+                <div class="nav-btn px-3">
+                    <a href="login.html" class="btn btn-primary rounded-pill py-2 px-4 ms-3 flex-shrink-0">Login</a>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Navbar End -->
+
+    <!-- Form Start -->
+    <div class="container-fluid contact bg-light py-3">
+        <div class="container py-3">
+            <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+                <img src="img/bps.png" alt="bps" class="img-fluid w-25">
+                <h1 class="display-4 mb-4">Survei Kepuasan</h1>
+                <h2 class="mb-4">Badan Pusat Statistik Provinsi Lampung</h2>
+                <p>Sebelum anda meninggalkan Kantor BPS Provinsi Lampung
+                    Mohon perkenannya untuk mengisi survey kepuasan singkat berikut</p>
+            </div>
+            <div class="row g-5 justify-content-center">
+                <div class="col-xl-6 wow fadeInRight" data-wow-delay="0.4s">
+                    <div>
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <b class="mt-5">Apa yang dapat kami perbaiki dari pelayanan kami?<br><br></b>
+                                    <div class="form-floating">
+                                        <textarea class="form-control border-0" placeholder="Leave a message here" id="Keperluan" style="height: 120px"></textarea>
+                                        <label for="Keperluan">Tuliskan saran dan masukan Anda di sini</label>
+                                        <br><br>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <b class="mt-5">Seberapa puas Anda dengan pelayanan kami?</b>
+                                    <div class="rating-container">
+                                        <input type="radio" id="rating-1" name="rating" value="1">
+                                        <label for="rating-1" data-rating="1">&#9733;</label>
+                                        <input type="radio" id="rating-2" name="rating" value="2">
+                                        <label for="rating-2" data-rating="2">&#9733;</label>
+                                        <input type="radio" id="rating-3" name="rating" value="3">
+                                        <label for="rating-3" data-rating="3">&#9733;</label>
+                                        <input type="radio" id="rating-4" name="rating" value="4">
+                                        <label for="rating-4" data-rating="4">&#9733;</label>
+                                        <input type="radio" id="rating-5" name="rating" value="5">
+                                        <label for="rating-5" data-rating="5">&#9733;</label>
+                                        <input type="radio" id="rating-6" name="rating" value="6">
+                                        <label for="rating-6" data-rating="6">&#9733;</label>
+                                        <input type="radio" id="rating-7" name="rating" value="7">
+                                        <label for="rating-7" data-rating="7">&#9733;</label>
+                                        <input type="radio" id="rating-8" name="rating" value="8">
+                                        <label for="rating-8" data-rating="8">&#9733;</label>
+                                        <input type="radio" id="rating-9" name="rating" value="9">
+                                        <label for="rating-9" data-rating="9">&#9733;</label>
+                                        <input type="radio" id="rating-10" name="rating" value="10">
+                                        <label for="rating-10" data-rating="10">&#9733;</label>
+                                    </div>
+                                </div>
+                                <div class="col-12" id="nomorAntrianDiv">
+                                    <div class="form-floating">
+                                        <input type="number" class="form-control border-0" id="nomorAntrian" placeholder="Nomor Antrian" min="1" step="1" required>
+                                        <label for="nomorAntrian">Nomor Antrian</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <br><br>
+                                    <button class="btn btn-primary w-100 py-3">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Copyright Start -->
+    <div class="container-fluid copyright py-4">
+        <div class="container">
+            <div class="row g-4 align-items-center">
+                <div class="col-md-6 text-center text-md-end mb-md-0">
+                    <span class="text-body"><a href="https://lampung.bps.go.id/" class="border-bottom text-white"><i class="fas fa-copyright text-light me-2"></i>BPS Provinsi Lampung</a>, All right reserved.</span>
+                </div>
+                <div class="col-md-6 text-center text-md-start text-body">
+                    Designed by IPDS BPS Provinsi Lampung
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Copyright End -->
+    <!-- Form End -->
+    <script>
+        const ratingInputs = document.querySelectorAll('.rating-container input[type="radio"]');
+        ratingInputs.forEach((input, index) => {
+            input.addEventListener('change', () => {
+                // Reset all labels color
+                ratingInputs.forEach(inp => {
+                    inp.nextElementSibling.style.color = '#ccc';
+                });
+
+                // Set color for selected and hovered stars
+                for (let i = 0; i <= index; i++) {
+                    ratingInputs[i].nextElementSibling.style.color = 'gold';
+                }
+            });
+
+            // Add event listener for hover effect
+            input.addEventListener('mouseover', () => {
+                // Set color for hovered stars
+                for (let i = 0; i <= index; i++) {
+                    ratingInputs[i].nextElementSibling.style.color = 'gold';
+                }
+            });
+
+            input.addEventListener('mouseout', () => {
+                // Reset color for non-checked stars
+                if (!input.checked) {
+                    for (let i = 0; i <= index; i++) {
+                        ratingInputs[i].nextElementSibling.style.color = '#ccc';
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

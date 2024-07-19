@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Cloud Example</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wordcloud2.js/1.0.6/wordcloud2.min.js"></script>
+    <style>
+        #wordCloudCanvas {
+            width: 100%;
+            height: 500px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>Word Cloud Example</h1>
+    <canvas id="wordCloudCanvas"></canvas>
+
+    <script>
+        var words = [
+            ['fun', 50], ['easy', 30], ['inclusive', 40], ['share', 20],
+            ['software', 15], ['beautiful', 35], ['reflection', 45], ['exciting', 25],
+            ['interactive', 60], ['brainstorm', 55], ['knowledge', 50],
+            ['ideas', 20], ['ice breaker', 30], ['cool', 15], ['live', 20],
+            ['thoughts', 25], ['presentations', 10], ['anonymous', 10]
+        ];
+
+        WordCloud(document.getElementById('wordCloudCanvas'), {
+            list: words,
+            gridSize: Math.round(16 * document.getElementById('wordCloudCanvas').width / 1024),
+            weightFactor: function (size) {
+                return Math.pow(size, 2.3) * document.getElementById('wordCloudCanvas').width / 1024;
+            },
+            fontFamily: 'Times, serif',
+            color: function () {
+                return 'hsl(' + 360 * Math.random() + ', 100%, 50%)';
+            },
+            rotateRatio: 0.5,
+            rotationSteps: 2,
+            backgroundColor: '#ffffff'
+        });
+    </script>
+</body>
+</html>
